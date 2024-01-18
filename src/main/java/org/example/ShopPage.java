@@ -7,5 +7,6 @@ public class ShopPage extends BasePage {
     private static String shopPageUrl = "https://practice.automationtesting.in/shop/";
     public ShopPage(WebDriver webDriver) {
         super(webDriver, shopPageUrl);
+        //TODO: Actually code something!
     }
 }
