@@ -25,11 +25,6 @@ public class BasePage extends LoadableComponent {
         if(declineOptions.size() > 0) {
             declineOptions.get(0).click();
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         PageFactory.initElements(webDriver, this);
     }
 
