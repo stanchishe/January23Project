@@ -11,5 +11,4 @@ Feature: Register a new User
 
     Examples:
       | username     | password             |
-      | zaDE5@abv.bg | JzMHUwaE02EHhh88E4BM |
-    
+      | zaDE8@abv.bg | JzMHUwaE02EHhh88E4BM |
