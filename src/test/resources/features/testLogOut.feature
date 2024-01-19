@@ -1,6 +1,6 @@
 @LogOut
 Feature: Test logOut
-  As a user
+  As a user,
   I want to be able to log out from my account
 
   Background:

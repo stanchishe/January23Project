@@ -1,13 +1,10 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.bouncycastle.asn1.cmc.TaggedRequest;
 import org.junit.Assert;
 import pageObjects.*;
-import utils.HelperClass;
 
 public class ValidateAccDetailsStep {
 
