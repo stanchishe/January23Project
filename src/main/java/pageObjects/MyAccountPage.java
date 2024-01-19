@@ -19,7 +19,7 @@ public class MyAccountPage  {
     WebElement passwordField;
 
     @FindBy(xpath = "//input[@value='Login']")
-    WebElement submitButton;
+    WebElement loginButton;
 
     @FindBy(xpath = "//a[text()='Account Details']")
     WebElement accountDetailsLink;
@@ -30,6 +30,9 @@ public class MyAccountPage  {
     @FindBy(xpath = "//a[text()='Addresses']")
     WebElement addressesLink;
 
+    @FindBy(xpath = "//a[text()='Sign out']")
+    WebElement signOutButton;
+
     public void enterUsername(String username){
         usernameField.sendKeys(username);
     }
@@ -38,14 +41,14 @@ public class MyAccountPage  {
         passwordField.sendKeys(password);
     }
 
-    public void clickOnSubmit(){
-        submitButton.click();
+    public void clickOnLoginButton(){
+        loginButton.click();
     }
 
     public void login(){
         enterUsername("testuser477");
         enterPassword("Testuser477!");
-        clickOnSubmit();
+        clickOnLoginButton();
     }
 
     public void clickOnAccountDetails(){
@@ -58,5 +61,13 @@ public class MyAccountPage  {
 
     public void clickOnAddressesButton(){
         addressesLink.click();
+    }
+
+    public void clickOnSignOutButton(){
+        signOutButton.click();
+    }
+
+    public boolean isLoginButtonDisplayed(){
+        return loginButton.isDisplayed();
     }
 }

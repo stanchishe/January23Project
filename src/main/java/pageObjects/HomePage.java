@@ -12,11 +12,8 @@ import static utils.HelperClass.getDriver;
 
 public class HomePage {
 
-    WebDriverWait wait;
-
     public HomePage(){
         PageFactory.initElements(getDriver(), this);
-        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(TIMEOUT));
     }
 
     @FindBy(xpath = "//a[text()='My Account']")

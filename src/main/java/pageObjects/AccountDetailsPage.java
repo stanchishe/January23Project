@@ -29,7 +29,7 @@ public class AccountDetailsPage {
     }
 
     public void enterFirstName(String firstName){
-        lastNameField.clear();
+        firstNameField.clear();
         firstNameField.sendKeys(firstName);
     }
 

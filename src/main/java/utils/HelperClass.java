@@ -41,7 +41,6 @@ public class HelperClass {
             driver.close();
             driver.quit();
         }
-
         helperClass = null;
     }
 
