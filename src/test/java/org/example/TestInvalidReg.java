@@ -26,7 +26,7 @@ public class TestInvalidReg {
 
     @After
     public static void closeState() {
-        //myAccountPage.closeBrowser();
+        myAccountPage.closeBrowser();
     }
     @Given("the browser window is open again")
     public void the_browser_window_is_open_again() {
