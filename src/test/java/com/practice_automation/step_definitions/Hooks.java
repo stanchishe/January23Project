@@ -31,7 +31,7 @@ public class Hooks extends BaseClassPracticeAutomation {
 
     @And("user navigates to myAccount")
     public void userNavigatesToMyAccount() {
-        clickOnButton(myAccountButton);
+        myAccountButton.click();
     }
 
     @And("user clicks the login button")

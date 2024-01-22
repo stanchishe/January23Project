@@ -33,6 +33,10 @@ public class BaseClassPracticeAutomation {
     @FindBy(xpath = Constants.USERNAME_FIELD)
     public static WebElement userLoginInput;
 
+    @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/div/p[1]/a")
+    public static WebElement signOutButton;
+
+
     public static String validPassword = "Sofiya123!@#";
     public static String validEmail = "asdf123@d.nh";
     public static String invalidPassword = "Sofiya";
@@ -58,10 +62,6 @@ public class BaseClassPracticeAutomation {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickOnButton(WebElement btn) {
-        btn.click();
-    }
-
 
     public void fillInField(WebElement element, String argument) {
         element.click();
@@ -69,5 +69,14 @@ public class BaseClassPracticeAutomation {
         if (argument != null) {
             element.sendKeys(argument);
         }
+    }
+
+
+    public void login() {
+        userLoginInput.click();
+        userLoginInput.sendKeys(validEmail);
+        passwordLoginInput.click();
+        passwordLoginInput.sendKeys(validPassword);
+        loginButton.click();
     }
 }
