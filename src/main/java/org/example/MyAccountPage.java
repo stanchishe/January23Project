@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"reg_email\"]")
+    @FindBy(xpath = "//*[@id=\"reg_email\"]") //Email polence
     WebElement registrationId;
-    @FindBy(xpath = "//*[@id=\"reg_password\"]")
+    @FindBy(xpath = "//*[@id=\"reg_password\"]")  //Pass polence
     WebElement registrationPass;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/p[3]/input[3]")
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/p[3]/input[3]") //Register Button
     WebElement registrationButton;
     public static final String myAccountUrl = "https://practice.automationtesting.in/my-account/";
     private WebDriver webDriver;

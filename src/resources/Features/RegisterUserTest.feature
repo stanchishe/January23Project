@@ -3,12 +3,12 @@ Feature: Register a new User
   I would like to be able to register a new account
 
   Scenario Outline:
-    Given the browser window is open
-    And the correct page is loaded
-    When the user enters a valid email <username> and pass <password>
-    And clicks the registration button
-    Then a new userId <username> is registered on the server
+    Given the browser window is openn
+    And the correct page is loadedd
+    When the user enters a valid email <username> and passs <password>
+    And clicks the registration buttonn
+    Then a new userId <username> is registered on the serverr
 
     Examples:
       | username     | password             |
-      | zaDE8@abv.bg | JzMHUwaE02EHhh88E4BM |
+      | kyrami@abv.bg | !AutomationTest |
