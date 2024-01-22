@@ -10,5 +10,16 @@ Feature: Register a new User
     Then a new userId <username> is registered on the server
 
     Examples:
+      | username      | password             |
+      | zaDE11@abv.bg | JzMHUwaE02EHhh88E4BM |
+
+  Scenario Outline:
+    Given the browser window is open again
+    And the correct page is loaded again
+    When the user enters a registered email <username> and pass <password>
+    And the user attempts to clicks the registration button
+    Then a registered user error is displayed
+
+    Examples:
       | username     | password             |
       | zaDE8@abv.bg | JzMHUwaE02EHhh88E4BM |
