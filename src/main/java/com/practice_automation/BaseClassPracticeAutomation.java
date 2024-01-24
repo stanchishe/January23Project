@@ -2,6 +2,7 @@ package com.practice_automation;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,14 +14,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.List;
 
 public class BaseClassPracticeAutomation {
-
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static DesiredCapabilities capabilities;
     public static ChromeOptions options;
-
 
     @FindBy(xpath = Constants.PASSWORD_FIELD)
     public static WebElement passwordLoginInput;
@@ -28,14 +28,10 @@ public class BaseClassPracticeAutomation {
     public static WebElement myAccountButton;
     @FindBy(xpath = Constants.LOGIN_BTN)
     public static WebElement loginButton;
-
-
     @FindBy(xpath = Constants.USERNAME_FIELD)
     public static WebElement userLoginInput;
-
     @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/div/p[1]/a")
     public static WebElement signOutButton;
-
 
     public static String validPassword = "Sofiya123!@#";
     public static String validEmail = "asdf123@d.nh";
@@ -46,7 +42,6 @@ public class BaseClassPracticeAutomation {
         driver.close();
         driver.quit();
     }
-
 
     public void browserSetUp() {
 
@@ -60,6 +55,12 @@ public class BaseClassPracticeAutomation {
         driver.get(Constants.URL);
         driver.manage().window().maximize();
         PageFactory.initElements(driver, this);
+
+        List<WebElement> declineOptions = driver.findElements(By.xpath(Constants.COOKIES_OPTIONS));
+        if (!declineOptions.isEmpty()) {
+            declineOptions.get(0).click();
+
+        }
     }
 
 
@@ -79,4 +80,5 @@ public class BaseClassPracticeAutomation {
         passwordLoginInput.sendKeys(validPassword);
         loginButton.click();
     }
+
 }
