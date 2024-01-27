@@ -7,57 +7,52 @@ import org.openqa.selenium.support.FindBy;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class ShippingAddress extends BasePage {
+public class ShippingAddress extends LoginPage {
 
-    @FindBy(xpath = "//*[@id=\"username\"]")
-    WebElement LogInId;
-    @FindBy(xpath = "//*[@id=\"password\"]")
-    WebElement LogInPass;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/form/p[3]/input[3]")
-    WebElement LogInButton;
-    @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/nav/ul/li[4]/a")
-    WebElement AddressButton;
-    @FindBy(xpath =  "//*[@id=\"page-36\"]/div/div[1]/div/div/div[2]/header/a")
-    WebElement EditAddress;
-
+    @FindBy(xpath = "//*[@id=\"shipping_first_name\"]")  //First name
+    WebElement FirstName;
+    @FindBy(xpath = "//*[@id=\"shipping_last_name\"]") //Last name
+    WebElement LastName;
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[3]/input")//company name
+    WebElement Company;
+    @FindBy(xpath = "//*[@id=\"shipping_address_1\"]") //Street
+    WebElement Street;
+    @FindBy(xpath = "//*[@id=\"shipping_address_2\"]") //Appartment
+    WebElement Appartment;
+    @FindBy(xpath = "//*[@id=\"shipping_city\"]") //TownCity
+    WebElement Town;
+    @FindBy(xpath = "//*[@id=\"shipping_postcode\"]") //PosteCode
+    WebElement Poste;
+    @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/nav/ul/li[4]/a") //address button
+    WebElement Addressbutton;
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/div/div[2]/header/a") //EditBilling
+    WebElement Editbilling;
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[10]/input[1]") //SAvebutton
+    WebElement SaveButton;
+    @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/div[1]") // Address saved text
+    WebElement SavedAddress;
     @FindBy String[] BlankFields = {
         "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[1]/input",  //First name
-            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[2]/input", //Last name
-            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[3]/input", //company name
-            "//*[@id=\"shipping_address_1\"]", //Street
-            "//*[@id=\"shipping_address_2\"]", //Appartment
-            "//*[@id=\"shipping_city\"]", //TownCity
-            "//*[@id=\"shipping_postcode\"]" //PosteCode
-            //missing Country, State
+        "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[2]/input", //Last name
+        "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[3]/input", //company name
+        "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[5]/input", //Street
+        "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[6]/input", //Appartment
+        "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[7]/input", //TownCity
+        "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[9]/input" //PosteCode
+        //missing Country, State
 
 
     };
 
-
-    public static final String myAccountUrl = "https://practice.automationtesting.in/my-account/";
-
     public ShippingAddress() {
-        super(myAccountUrl);
+        super();
     }
 
-    public void enterEmail(String userEmail) {
-        LogInId.click();
-        LogInId.sendKeys(userEmail);
+    public void selectAddress() {
+        Addressbutton.click();
     }
-
-    public void enterPass(String userPass) {
-        String[] passChars = userPass.split("");
-        for(String passChar: passChars) {
-            LogInPass.sendKeys(passChar);
-        }
-    }
-    public void registerUser() {LogInButton.click(); }
-    public void address(){
-        AddressButton.click();
-    }
-    public void edit(){
-        EditAddress.click();
-
+    public void selectEditBilling() {
+        Editbilling.click();
         WebElement[] elements = new WebElement[BlankFields.length];
 
         // Find the web elements and store them in the array
@@ -69,10 +64,49 @@ public class ShippingAddress extends BasePage {
         for (int i = 0; i < elements.length; i++) {
             WebElement element = elements[i];
             String value = element.getAttribute("value");
-            if (value== "") {
+            if (value == "") {
                 System.out.println("prazno");
             }
         }
+    }
+    public void enterName(String firstName) {
+        FirstName.click();
+        FirstName.clear();
+        FirstName.sendKeys(firstName);
+    }
+    public void enterLastName(String lastName) {
+        LastName.click();
+        LastName.clear();
+        LastName.sendKeys(lastName);
+    }
+    public void enterCompnay(String company) {
+        Company.click();
+        Company.clear();
+        Company.sendKeys(company);
+    }
+    public void enterStreetName(String Streetname) {
+        Street.click();
+        Street.clear();
+        Street.sendKeys(Streetname);
+    }public void enterAppartmentName(String Appartmentname) {
+        Appartment.click();
+        Appartment.clear();
+        Appartment.sendKeys(Appartmentname);
+    }public void enterTownName(String TownName) {
+        Town.click();
+        Town.clear();
+        Town.sendKeys(TownName);
+    }public void enterPosteName(String PosteName) {
+        Poste.click();
+        Poste.clear();
+        Poste.sendKeys(PosteName);
+    }
+    public void ClickSave() {
+        SaveButton.click();
+    }
+
+    public String isSaved() {
+        return SavedAddress.getText().trim();
     }
 
 }

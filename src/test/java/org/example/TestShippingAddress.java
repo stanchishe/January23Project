@@ -58,22 +58,36 @@ import java.time.Duration;
             newShippingAddress.registerUser();
         }
 
-        @Then("^a userId (.*) is Logged in to the site$")
-        public void a_user_id_is_logged_in_to_the_site(String expectedUser) {
-            String registeredUser = webDriver.findElement(
-                    By.xpath("//*[@id=\"page-36\"]/div/div[1]/div/p[1]/strong")
-            ).getText().trim();
-            Assertions.assertEquals(expectedUser.split("@")[0], registeredUser, "The user was not registered correctly!");
+        @Then("go to address Page")
+        public void go_to_address_page() {
+            newShippingAddress.selectAddress();
         }
 
-        @Then("Clicks the Address button")
-        public void clicks_the_address_button() {
-            newShippingAddress.address();
+        @Then("click the edit billing address Button")
+        public void click_the_edit_billing_address_button() {
+            newShippingAddress.selectEditBilling();
         }
 
-        @Then("Clicks Edit button")
-        public void clicks_the_edit_button() {
-            newShippingAddress.edit();
-    }
+        @When("^the user enters (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*)$")
+        public void the_user_enters_information(String first_name, String last_name, String company, String street, String apartment, String town, String post) {
+            newShippingAddress.enterName(first_name);
+            newShippingAddress.enterLastName(last_name);
+            newShippingAddress.enterCompnay(company);
+            newShippingAddress.enterStreetName(street);
+            newShippingAddress.enterAppartmentName(apartment);
+            newShippingAddress.enterTownName(town);
+            newShippingAddress.enterPosteName(post);
+        }
+
+        @And("clicks the save Button")
+        public void clicks_the_save_button() {
+            newShippingAddress.ClickSave();
+        }
+
+        @Then("the information is Saved")
+        public void the_information_is_saved() {
+            String savedAddress = newShippingAddress.isSaved();
+            Assertions.assertEquals("Address changed successfully.", savedAddress, "The address was saved correctly!");
+        }
 
 }

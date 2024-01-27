@@ -68,7 +68,7 @@ public class TestBillingAddress {
     }
 
     @When("^the user enters (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*)$")
-    public void the_user_enters_information(String first_name, String last_name, String company, String street, String apartment, String town, String post, String email, String phone) throws InterruptedException {
+    public void the_user_enters_information(String first_name, String last_name, String company, String street, String apartment, String town, String post, String email, String phone) {
         MyBillingAddress.enterName(first_name);
         MyBillingAddress.enterLastName(last_name);
         MyBillingAddress.enterCompnay(company);

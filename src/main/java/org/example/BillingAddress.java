@@ -22,7 +22,7 @@ public class BillingAddress extends LoginPage {
     WebElement Appartment;
     @FindBy(xpath = "//*[@id=\"billing_city\"]") //TownCity
     WebElement Town;
-    @FindBy(xpath = "//*[@id=\"billing_city\"]") //PosteCode
+    @FindBy(xpath = "//*[@id=\"billing_postcode\"]") //PosteCode
     WebElement Poste;
     @FindBy(xpath = "//*[@id=\"billing_email\"]") // email
     WebElement Email;
@@ -36,6 +36,18 @@ public class BillingAddress extends LoginPage {
     WebElement SaveButton;
     @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/div[1]") // Address saved text
     WebElement SavedAddress;
+    @FindBy String[] BlankFields = {
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[1]/input",  //First name
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[2]/input", //Last name
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[3]/input", //company name
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[4]/input", // email
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[5]/input", // phone
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[7]/input", //Street
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[8]/input", //Appartment
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[9]/input", //TownCity
+            "/html/body/div[1]/div[2]/div/div/div/div/div[1]/div/form/p[11]/input" //PosteCode
+            //missing Country, State
+    };
 
     public BillingAddress() {
         super();
@@ -46,6 +58,21 @@ public class BillingAddress extends LoginPage {
     }
     public void selectEditBilling() {
         Editbilling.click();
+        WebElement[] elements = new WebElement[BlankFields.length];
+
+        // Find the web elements and store them in the array
+        for (int i = 0; i < BlankFields.length; i++) {
+            elements[i] = webDriver.findElement(By.xpath(BlankFields[i]));
+        }
+
+        // Iterate over the array of web elements using a for loop
+        for (int i = 0; i < elements.length; i++) {
+            WebElement element = elements[i];
+            String value = element.getAttribute("value");
+            if (value == "") {
+                System.out.println("prazno");
+            }
+        }
     }
     public void enterName(String firstName) {
         FirstName.click();
