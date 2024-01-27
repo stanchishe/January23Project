@@ -34,6 +34,8 @@ public class BillingAddress extends LoginPage {
     WebElement Editbilling;
     @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/div/form/p[12]/input[1]") //SAvebutton
     WebElement SaveButton;
+    @FindBy(xpath = "//*[@id=\"page-36\"]/div/div[1]/div[1]") // Address saved text
+    WebElement SavedAddress;
 
     public BillingAddress() {
         super();
@@ -47,37 +49,50 @@ public class BillingAddress extends LoginPage {
     }
     public void enterName(String firstName) {
         FirstName.click();
+        FirstName.clear();
         FirstName.sendKeys(firstName);
     }
     public void enterLastName(String lastName) {
         LastName.click();
+        LastName.clear();
         LastName.sendKeys(lastName);
     }
     public void enterCompnay(String company) {
         Company.click();
+        Company.clear();
         Company.sendKeys(company);
     }
     public void enterStreetName(String Streetname) {
         Street.click();
+        Street.clear();
         Street.sendKeys(Streetname);
     }public void enterAppartmentName(String Appartmentname) {
         Appartment.click();
+        Appartment.clear();
         Appartment.sendKeys(Appartmentname);
     }public void enterTownName(String TownName) {
         Town.click();
+        Town.clear();
         Town.sendKeys(TownName);
     }public void enterPosteName(String PosteName) {
         Poste.click();
+        Poste.clear();
         Poste.sendKeys(PosteName);
     }public void enterEmailName(String EmailName) {
         Email.click();
+        Email.clear();
         Email.sendKeys(EmailName);
     }public void enterPhoneName(String PhoneName) {
         Phone.click();
+        Phone.clear();
         Phone.sendKeys(PhoneName);
     }
     public void ClickSave() {
         SaveButton.click();
+    }
+
+    public String isSaved() {
+        return SavedAddress.getText().trim();
     }
 }
 

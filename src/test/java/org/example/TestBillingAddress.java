@@ -68,7 +68,7 @@ public class TestBillingAddress {
     }
 
     @When("^the user enters (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*) and (.*)$")
-    public void the_user_enters_information(String first_name, String last_name, String company, String street, String apartment, String town, String post, String email, String phone) {
+    public void the_user_enters_information(String first_name, String last_name, String company, String street, String apartment, String town, String post, String email, String phone) throws InterruptedException {
         MyBillingAddress.enterName(first_name);
         MyBillingAddress.enterLastName(last_name);
         MyBillingAddress.enterCompnay(company);
@@ -85,12 +85,10 @@ public class TestBillingAddress {
         MyBillingAddress.ClickSave();
     }
 
-//    @Then("the information is saved")
-//    public void a_user_id_is_logged_in_to_the_site(String expectedUser) {
-//        String registeredUser = webDriver.findElement(
-//                By.xpath("//*[@id=\"page-36\"]/div/div[1]/div/p[1]/strong")
-//        ).getText().trim();
-//        Assertions.assertEquals(expectedUser.split("@")[0], registeredUser, "The user was not registered correctly!");
-//    }
+    @Then("the information is saved")
+    public void the_information_is_saved() {
+        String savedAddress = MyBillingAddress.isSaved();
+        Assertions.assertEquals("Address changed successfully.", savedAddress, "The address was saved correctly!");
+    }
 
 }

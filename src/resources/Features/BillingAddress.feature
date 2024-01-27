@@ -9,7 +9,7 @@ Feature: As a real user i want to be able to enter my billing information.
     Then click the edit billing address button
     When the user enters <first_name> and <last_name> and <company> and <street> and <apartment> and <town> and <post> and <email> and <phone>
     And clicks the save button
-#    Then the information is saved
+    Then the information is saved
 
     Examples:
       | username        | password        | first_name | last_name | company  | street    | apartment | town  | post | email           | phone      |
