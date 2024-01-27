@@ -3,6 +3,8 @@ package org.example;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.HomePage;
 import org.junit.jupiter.api.Assertions;
 
 import org.openqa.selenium.WebDriver;
@@ -15,11 +17,11 @@ public class TestHomePage {
 
     @Before
     public static void initSetup() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("Start-Maximized");
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("Start-Maximized");
         //options.addExtensions(new File("adBlocker2"));
-        webDriver = new ChromeDriver(options);
-        homePage = new HomePage(webDriver);
+        //webDriver = new ChromeDriver(options);
+        homePage = new HomePage();
     }
 
     @AfterAll

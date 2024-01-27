@@ -13,9 +13,8 @@ public class MyAccountPage extends BasePage {
     WebElement registrationButton;
     public static final String myAccountUrl = "https://practice.automationtesting.in/my-account/";
     private WebDriver webDriver;
-    public MyAccountPage(WebDriver webDriver) {
-        super(webDriver, myAccountUrl);
-        this.webDriver = webDriver;
+    public MyAccountPage() {
+        super(myAccountUrl);
     }
 
     public void enterEmail(String userEmail) {

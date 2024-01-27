@@ -3,6 +3,8 @@ package org.example;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.MyAccountPage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,12 +19,12 @@ public class TestMyAccountPage {
 
         @Before
         public static void initState() {
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("Start-Maximized");
+                //ChromeOptions options = new ChromeOptions();
+                //options.addArguments("Start-Maximized");
                 //options.addExtensions(new File("src/resources/ChromeExtension/Adblocker2.crx"));
-                webDriver = new ChromeDriver(options);
-                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-                myAccountPage = new MyAccountPage(webDriver);
+                //webDriver = new ChromeDriver(options);
+                //webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+                myAccountPage = new MyAccountPage();
         }
 
         @After

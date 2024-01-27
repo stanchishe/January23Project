@@ -9,8 +9,8 @@ import java.util.List;
 public class HomePage extends BasePage {
 
     private static final String homePageUrl = "https://practice.automationtesting.in/";
-    public HomePage(WebDriver webDriver) {
-        super(webDriver, homePageUrl);
+    public HomePage() {
+        super(homePageUrl);
 
     }
 

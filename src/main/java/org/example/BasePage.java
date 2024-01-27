@@ -3,10 +3,13 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
+import java.time.Duration;
 import java.util.List;
 
 public class BasePage extends LoadableComponent {
@@ -17,8 +20,11 @@ public class BasePage extends LoadableComponent {
     WebElement myAccButton;
     public WebDriver webDriver;
     private String pageUrl;
-    public BasePage(WebDriver webDriver, String pageUrl) {
-        this.webDriver = webDriver;
+    public BasePage(String pageUrl) {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("Start-Maximized");
+        webDriver = new ChromeDriver(options);
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.pageUrl = pageUrl;
         this.load();
         List<WebElement> declineOptions = webDriver.findElements(By.xpath("/html/body/div[3]/div[2]/div[1]/div[2]/div[2]/button[2]"));

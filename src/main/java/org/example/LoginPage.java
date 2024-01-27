@@ -14,9 +14,8 @@ public class LoginPage extends BasePage {
     WebElement LogInButton;
     public static final String myAccountUrl = "https://practice.automationtesting.in/my-account/";
 
-    public LoginPage(WebDriver webDriver) {
-        super(webDriver, myAccountUrl);
-        this.webDriver = webDriver;
+    public LoginPage() {
+        super(myAccountUrl);
     }
 
     public void enterEmail(String userEmail) {

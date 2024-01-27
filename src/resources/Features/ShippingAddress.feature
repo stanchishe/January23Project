@@ -1,6 +1,6 @@
-Feature: Log in a existing User and check shipping address
+Feature: Log in a existing User and check shipping address page
   As a real user
-  I would like to be able to log in and see my shipping address.
+  I would like to be able to log in and see my shipping address page fields are blank and ready to be filled.
 
   Scenario Outline:
     Given the browser window is Open

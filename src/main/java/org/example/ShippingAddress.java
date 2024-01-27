@@ -36,9 +36,8 @@ public class ShippingAddress extends BasePage {
 
     public static final String myAccountUrl = "https://practice.automationtesting.in/my-account/";
 
-    public ShippingAddress(WebDriver webDriver) {
-        super(webDriver, myAccountUrl);
-        this.webDriver = webDriver;
+    public ShippingAddress() {
+        super(myAccountUrl);
     }
 
     public void enterEmail(String userEmail) {
